@@ -39,16 +39,18 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| **Relationship**          | **Entities Involved** | **Cardinality**              | **Participation**                     | **Notes**                                                                      |
+| ------------------------- | --------------------- | ---------------------------- | ------------------------------------- | ------------------------------------------------------------------------------ |
+| **Assigned\_by**          | Member – Trainer      | 1 Trainer : Many Members     | Member (Total), Trainer (Partial)     | Each member must be assigned a trainer; a trainer may train multiple members   |
+| **Specified\_course**     | Session – Program     | Many Sessions : 1 Program    | Session (Total), Program (Partial)    | Each session belongs to a program; a program may have multiple sessions        |
+| **Specified\_time**       | Member – Session      | 1 Member : Many Sessions     | Member (Partial), Session (Total)     | A member can have many sessions; each session is scheduled for one member      |
+| **Amount\_collected**     | Session – Payment     | 1 Session : Many Payments    | Session (Partial), Payment (Total)    | A session may have multiple payments; each payment must be linked to a session |
+| **Presence\_in\_session** | Attendance – Session  | Many Attendances : 1 Session | Attendance (Total), Session (Partial) | Tracks attendance per session; each attendance record belongs to one session   |
 
 ### Assumptions
-- 
-- 
-- 
+- All IDs (Member_id, Trainer_id, Program_id, Session_id, Payment_id, Attendance_id) are primary keys and unique.
+- Foreign key relationships ensure referential integrity (e.g., a payment cannot exist without a valid member and session).
+- The system assumes each member is assigned at least one trainer and the system records both financial (payments) and non-financial (attendance, schedules) aspects of gym operations.
 
 ---
 
