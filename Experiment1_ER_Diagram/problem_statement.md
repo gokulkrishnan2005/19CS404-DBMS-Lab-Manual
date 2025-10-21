@@ -92,29 +92,29 @@ Staff maintains Reports                        |  1:N          |  Staff: Total  
 Staff maintains Books                          |  1:N          |  Staff: Partial  |  Each staff maintains multiple books; not all staff may maintain books.                      |
 Authentication System provides login to Staff  |  1:N          |  Staff: Total    |  Each authentication system provides login to multiple staff members; every staff must login.|
 ### Assumptions
--Each reader must have a valid login credential in the authentication system before borrowing or reserving books.
+- Each reader must have a valid login credential in the authentication system before borrowing or reserving books.
 
--A book can be reserved by only one reader at a time, but may be borrowed multiple times by different readers over time.
+- A book can be reserved by only one reader at a time, but may be borrowed multiple times by different readers over time.
 
--Phone number is a multi-valued attribute for readers, allowing multiple contact numbers per user.
+- Phone number is a multi-valued attribute for readers, allowing multiple contact numbers per user.
 
--Overdue fines are calculated automatically based on the difference between the return date and due date.
+- Overdue fines are calculated automatically based on the difference between the return date and due date.
 
--Each reservation/return transaction (Reg_no) uniquely identifies one borrowing instance and links one reader to one book.
+- Each reservation/return transaction (Reg_no) uniquely identifies one borrowing instance and links one reader to one book.
 
--Every book must belong to a single publisher, but one publisher can publish many books.
+- Every book must belong to a single publisher, but one publisher can publish many books.
 
--Staff members are responsible for maintaining book records, managing reservations, and assisting readers, though not all staff handle all functions.
+- Staff members are responsible for maintaining book records, managing reservations, and assisting readers, though not all staff handle all functions.
 
--Each staff member also logs in using the authentication system, ensuring secure and authorized access.
+- Each staff member also logs in using the authentication system, ensuring secure and authorized access.
 
--All events are organized by the library and may have one or more speakers/authors, but each event must be assigned to a room.
+- All events are organized by the library and may have one or more speakers/authors, but each event must be assigned to a room.
 
--Rooms can be booked either for study purposes or for cultural events, not simultaneously for both activities.
+- Rooms can be booked either for study purposes or for cultural events, not simultaneously for both activities.
 
--Deletion of a reader record is restricted until all borrowed books are returned and pending fines are cleared.
+- Deletion of a reader record is restricted until all borrowed books are returned and pending fines are cleared.
 
--System ensures referential integrity, meaning no orphan books, readers, or transactions exist without proper linkages to their related entities.
+- System ensures referential integrity, meaning no orphan books, readers, or transactions exist without proper linkages to their related entities.
 
 ---
 
