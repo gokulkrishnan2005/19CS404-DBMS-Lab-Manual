@@ -67,19 +67,19 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-<img width="1043" height="822" alt="image" src="https://github.com/user-attachments/assets/e69726b7-3e19-4279-96c7-18e7a2b858be" />
+y<img width="1009" height="798" alt="image" src="https://github.com/user-attachments/assets/d410adf3-7db1-41cb-98a8-b0860ff54d1e" />
 
 
 ### Entities and Attributes
 
-Entity                         |  Attributes (PK, FK)                                                                      |  Notes                                                                                                                           
--------------------------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------
-Book                           |  ISBN (PK), autho, title, edition, category, price, PublisherId (FK)                      |  A Book is linked to a Publisher. ISBN is the unique identifier.                                                                 
-Publisher                      |  PublisherId (PK), Year of publication, name                                              |  The Book entity uses this PK as an FK to show which publisher published it.                                                     
-Reader                         |  UserId (PK), Email, address, phone no, firstname, lastname, LoginID (FK)                 |  UserId is the unique identifier. Name is split into firstname and lastname (Composite). Phone no is Multi-valued (see note).    
-Authentication System          |  LoginID (PK), password                                                                   |  This PK is used as an FK in the Reader entity to link the login details.                                                        
-Staff                          |  staff_id (PK), name                                                                      |  This identifies library staff members.                                                                                          
-Reserve/Return (Relationship)  |  Reg_no (PK), UserId (FK), ISBN (FK), Reserve date, Due date, Return date, staff_id (FK)  |  This is a transaction table that replaces the Reports entity and links the Reader and Book. Reg_no is the unique transaction ID.
+Entity                         |  Attributes (PK, FK)                                                                      |  Notes        |
+|------------------------------|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+Book                           |  ISBN (PK), autho, title, edition, category, price, PublisherId (FK)                      |  A Book is linked to a Publisher. ISBN is the unique identifier.                                                             |   
+Publisher                      |  PublisherId (PK), Year of publication, name                                              |  The Book entity uses this PK as an FK to show which publisher published it.                                                 |   
+Reader                         |  UserId (PK), Email, address, phone no, firstname, lastname, LoginID (FK)                 |  UserId is the unique identifier. Name is split into firstname and lastname (Composite). Phone no is Multi-valued (see note).|   
+Authentication System          |  LoginID (PK), password                                                                   |  This PK is used as an FK in the Reader entity to link the login details.                                                    |   
+Staff                          |  staff_id (PK), name                                                                      |  This identifies library staff members.                                                                                      |   
+Reserve/Return (Relationship)  |  Reg_no (PK), UserId (FK), ISBN (FK), Reserve date, Due date, Return date, staff_id (FK)  |  This is a transaction table that replaces the Reports entity and links the Reader and Book. Reg_no is the unique transaction ID.|
 
 ### Relationships and Constraints
 
