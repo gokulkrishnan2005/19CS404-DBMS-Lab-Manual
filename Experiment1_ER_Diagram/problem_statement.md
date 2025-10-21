@@ -134,28 +134,45 @@ A popular restaurant wants to manage reservations, orders, and billing.
 ### ER Diagram:
 <img width="249" height="202" alt="image" src="https://github.com/user-attachments/assets/f4875db6-c27b-4573-bc0f-102974b15377" />
 
+### Entities and Attributes
 
-Entity          |  Attributes (PK, FK)                                                                      |  Notes                                                                     
-----------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------
-Book            |  ISBN (PK), title, author, edition, category, price, PublisherId (FK)                     |  Each book is uniquely identified by ISBN and linked to one publisher .    
-Publisher       |  PublisherId (PK), Year of publication, name                                              |  The Book entity uses this PK as an FK; one publisher can have many books .
-Reader          |  UserId (PK), Email, address, phone no, firstname, lastname, LoginID (FK)                 |  Name is split into firstname and lastname. Phone number is multi-valued . 
-Authentication  |  LoginID (PK), password                                                                   |  Used to link login details for both readers and staff .                   
-Staff           |  staff_id (PK), name                                                                      |  Identifies library staff members .                                        
-Reserve/Return  |  Reg_no (PK), UserId (FK), ISBN (FK), Reserve date, Due date, Return date, staff_id (FK)  |  Transaction table for borrowing/returning books .                         
+Entity              |  Attributes (PK, FK)                                                                           |  Notes                                    
+--------------------|------------------------------------------------------------------------------------------------|-------------------------------------------
+Customer            |  C_ID (PK), Mobile_No, Address, Review, Res_ID (FK)                                            |  Writes review, makes reservation         
+Restaurant          |  Res_ID (PK), Res_name, Description, E-Menu, Type, Contact_No, Address, City                   |  Owns tables, receives reservations       
+Table               |  T_ID (PK), Res_ID (FK), Capacity, Vacant(Y/N), Reserved(Y/N)                                  |  Linked to restaurant, reserved in booking
+Reservation         |  R_ID (PK), Res_ID (FK), RD_time, RD_Date, C_ID (FK), T_ID (FK), R_Time, R_Date, No_Of_Guests  |  Includes customer and table references   
+Review              |  Res_ID (FK), C_ID (FK), Review                                                                |  Written by customer for restaurant       
+Administrator       |  A_ID (PK), Name, E-Mail, Mobile_No                                                            |  Handles login, manages establishments    
+Login               |  User_ID (PK), Password, C_ID (FK), User_ID (PK)                                               |  Customer/admin login details             
+No_Of_Reservations  |  C_ID (FK), User_ID (FK)                                                                       |  Tracks reservation count    
 
-### Relationships and Constraints
-
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+Relationship            |  Cardinality  |  Participation                                   |  Notes                                                                                     
+------------------------|---------------|--------------------------------------------------|--------------------------------------------------------------------------------------------
+Customer–Review         |  1:N          |  Customer (mandatory), Review (optional)         |  A customer can write multiple reviews; each review belongs to one customer                
+Restaurant–Table        |  1:N          |  Restaurant (mandatory), Table (optional)        |  A restaurant has multiple tables; each table belongs to one restaurant                    
+Customer–Reservation    |  1:N          |  Customer (mandatory), Reservation (optional)    |  A customer can make multiple reservations; each reservation is tied to one customer       
+Table–Reservation       |  1:N          |  Table (mandatory), Reservation (optional)       |  Each table can have multiple reservations over time, but each reservation is for one table
+Restaurant–Reservation  |  1:N          |  Restaurant (mandatory), Reservation (optional)  |  A restaurant can have multiple reservations, each reservation is for one restaurant       
+Administrator–Login     |  1:1          |  Admin (mandatory), Login (mandatory)            |  Each administrator has a unique login                                                     
+Customer–Login          |  1:1          |  Customer (mandatory), Login (mandatory)         |  Each customer has a unique login               
 
 ### Assumptions
-- 
-- 
-- 
+- Each customer must be registered and authenticated via a unique login before making reservations or submitting reviews.​
+
+- A review is always linked to both a customer (author) and a restaurant; reviews cannot exist independently.​
+
+- Every table belongs to one restaurant only; there is no sharing of tables between restaurants.​
+
+- Reservations require information about customer, table, and restaurant, ensuring all three entities participate in every booking.​
+
+- An administrator must have a distinct login and is responsible for system management; no overlap is allowed between administrator and customer roles.​
+
+- The No_Of_Reservations entity assumes that reservation counts are tracked per user and customer, possibly for analytics or tracking frequent users.​
+
+- Hotel and table availability are tracked using reserved/vacant attributes, supporting dynamic assignment during bookings.​
+
+- E-Menus, descriptions, and other restaurant details are directly associated and accessed only via the Restaurant entity.
 
 ---
 
