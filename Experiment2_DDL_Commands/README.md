@@ -105,123 +105,157 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+<img width="1200" height="360" alt="image" src="https://github.com/user-attachments/assets/ba1267d8-fcbe-47ca-99e6-418772453c3d" />
 
 ```sql
--- Paste your SQL code below for Question 1
+create table Employees(
+EmployeeID integer primary key,
+FirstName   text not null,
+LastName  text not null,
+Email  text unique,
+Salary real check (Salary>0),
+DepartmentID integer,
+foreign key (DepartmentID) references Departments(DepartmentID));
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1225" height="382" alt="image" src="https://github.com/user-attachments/assets/d6e1f0b9-bbae-48b3-bdad-a3adbcda55b7" />
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="903" height="352" alt="image" src="https://github.com/user-attachments/assets/d6de39b5-6172-419b-ba5e-026ef2315d2d" />
 
 ```sql
--- Paste your SQL code below for Question 2
+insert into Employee (EmployeeID,Name,Position)
+values (4,"Emily White","Analyst")
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1078" height="271" alt="image" src="https://github.com/user-attachments/assets/ece7179b-ca01-42cd-bbf7-66abd29cf64a" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="838" height="308" alt="image" src="https://github.com/user-attachments/assets/c7196516-754d-4088-8201-091488a77f04" />
+
 
 ```sql
--- Paste your SQL code below for Question 3
+insert into customers (CustomerID, Name, Address, Email)
+select CustomerID, Name, Address, Email
+from  Old_customers
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1227" height="249" alt="image" src="https://github.com/user-attachments/assets/d1341814-da00-4583-8ef4-5f76d97d8a1c" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="1133" height="365" alt="image" src="https://github.com/user-attachments/assets/33a68a18-6d62-4d6e-aa73-3d8e7b8b1ce6" />
 
 ```sql
--- Paste your SQL code below for Question 4
+alter table Student_details add column  MobileNumber NUMBER;
+alter table Student_details add column Address VARCHAR(100);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1222" height="349" alt="image" src="https://github.com/user-attachments/assets/5ce14c96-fa0b-42b0-83f8-d11f0a61f7bc" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="763" height="333" alt="image" src="https://github.com/user-attachments/assets/c6024564-b071-4915-b87a-3ff8cd914bf9" />
 
 ```sql
--- Paste your SQL code below for Question 5
+create table Products(
+ProductID integer Primarykey,
+ProductName Not Null,
+Price real check(Price>0),
+Stock integer Check(Stock>0));
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1204" height="243" alt="image" src="https://github.com/user-attachments/assets/886f8ade-8616-4f3d-ab66-b657f09c4670" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="899" height="347" alt="image" src="https://github.com/user-attachments/assets/61190f24-355d-41aa-8fa8-ba2f493731da" />
 
 ```sql
--- Paste your SQL code below for Question 6
+create table Tasks(
+TaskID  INTEGER,
+TaskName  TEXT,
+DueDate DATE);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1232" height="331" alt="image" src="https://github.com/user-attachments/assets/3f1da6a9-cfd1-42c6-b0aa-b72999def51d" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="780" height="356" alt="image" src="https://github.com/user-attachments/assets/0d953bb8-3c42-4529-aab7-34c8bc4ea7ec" />
 
 ```sql
--- Paste your SQL code below for Question 7
+insert into Employee(EmployeeID, Name,Position,Department,Salary)
+Values(2,"John Smith","Developer","IT",75000);
+insert into Employee(EmployeeID, Name,Position,Department,Salary)
+values(3,"Anna Bell","Designer","Marketing", 68000);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1234" height="326" alt="image" src="https://github.com/user-attachments/assets/d77ac046-62f8-400e-81ee-2e1d730418bf" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1198" height="290" alt="image" src="https://github.com/user-attachments/assets/a11f032e-96f8-488f-8143-f3f1a99aa353" />
 
 ```sql
--- Paste your SQL code below for Question 8
+create table Shipments(
+ShipmentID integer primary key,
+ShipmentDate Date,
+SupplierID Integer,
+OrderID Integer,
+foreign key (SupplierID) references Suppliers(SupplierID),
+foreign key  (OrderID) references Orders(OrderID));
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1223" height="215" alt="image" src="https://github.com/user-attachments/assets/a0cfc10d-0841-491c-8341-692209900885" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="1156" height="279" alt="image" src="https://github.com/user-attachments/assets/d94ec56d-7793-45f0-bdb5-090adee15cde" />
 
 ```sql
--- Paste your SQL code below for Question 9
+alter table employee add column first_name varchar(50);
+alter table employee add column last_name varchar(50);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1244" height="292" alt="image" src="https://github.com/user-attachments/assets/7b791331-3fcd-424c-a998-dd26c6791bd1" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="1258" height="403" alt="image" src="https://github.com/user-attachments/assets/aa27ce42-62b0-4679-8959-eabe1e76a7c8" />
 
 ```sql
--- Paste your SQL code below for Question 10
+create table contacts(
+contact_id INTEGER primary key,
+first_name  TEXT  not NULL,
+last_name TEXT  not NULL,
+email TEXT,
+phone text  not null check(length(phone)>=10));
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1223" height="282" alt="image" src="https://github.com/user-attachments/assets/1c400eb0-61e4-4f96-bf5b-399646f560f0" />
 
 
 ## RESULT
