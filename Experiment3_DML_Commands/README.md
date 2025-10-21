@@ -1,4 +1,4 @@
-<img width="644" height="502" alt="image" src="https://github.com/user-attachments/assets/0fb9ccf9-3f8a-4d3a-8bd0-11f61173a96f" /># Experiment 3: DML Commands
+# Experiment 3: DML Commands
 
 ## AIM
 To study and implement DML (Data Manipulation Language) commands.
@@ -183,7 +183,7 @@ or outstanding_amt>8000;
 
 **Output:**
 
-<img width="1233" height="592" alt="image" src="https://github.com/user-attachments/assets/056e7653-72b3-4652-b174-3021c06c9089" />
+<img width="1233" height="592" alt="image" src="https://github.com/user-attachments/assets/056e7653-72b3-4652-b174-3021c06c9089" />             
 ## Grade
 <img width="1381" height="72" alt="image" src="https://github.com/user-attachments/assets/8a93917b-6a90-4f84-ad55-158f610be3b1" />
 
