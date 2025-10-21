@@ -83,14 +83,14 @@ Reserve/Return (Relationship)  |  Reg_no (PK), UserId (FK), ISBN (FK), Reserve d
 
 ### Relationships and Constraints
 
-Relationship                                   |  Cardinality  |  Participation   |  Notes                                                                                       
------------------------------------------------+---------------+------------------+----------------------------------------------------------------------------------------------
-Reader reserves Books                          |  1:N          |  Reader: Total   |  A reader can reserve many books; each book is reserved by only one reader.                  
-Publisher publishes Books                      |  1:N          |  Book: Total     |  A publisher can publish many books; each book is published by only one publisher.           
-Staff keeps track of Readers                   |  M:N          |  Staff: Partial  |  Multiple staff can track multiple readers; tracking is not mandatory for all.               
-Staff maintains Reports                        |  1:N          |  Staff: Total    |  Each staff maintains multiple reports; every report is maintained by one staff member.      
-Staff maintains Books                          |  1:N          |  Staff: Partial  |  Each staff maintains multiple books; not all staff may maintain books.                      
-Authentication System provides login to Staff  |  1:N          |  Staff: Total    |  Each authentication system provides login to multiple staff members; every staff must login.
+Relationship                                   |  Cardinality  |  Participation   |  Notes                                                   |                                    
+-----------------------------------------------|---------------|------------------|------------------------------------------------------------------------------------------|
+Reader reserves Books                          |  1:N          |  Reader: Total   |  A reader can reserve many books; each book is reserved by only one reader.               |   
+Publisher publishes Books                      |  1:N          |  Book: Total     |  A publisher can publish many books; each book is published by only one publisher.         |  
+Staff keeps track of Readers                   |  M:N          |  Staff: Partial  |  Multiple staff can track multiple readers; tracking is not mandatory for all.              | 
+Staff maintains Reports                        |  1:N          |  Staff: Total    |  Each staff maintains multiple reports; every report is maintained by one staff member.      |
+Staff maintains Books                          |  1:N          |  Staff: Partial  |  Each staff maintains multiple books; not all staff may maintain books.                      |
+Authentication System provides login to Staff  |  1:N          |  Staff: Total    |  Each authentication system provides login to multiple staff members; every staff must login.|
 ### Assumptions
 -Each reader must have a valid login credential in the authentication system before borrowing or reserving books.
 
