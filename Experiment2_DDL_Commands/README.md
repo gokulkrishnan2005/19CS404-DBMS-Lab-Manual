@@ -256,6 +256,9 @@ phone text  not null check(length(phone)>=10));
 **Output:**
 
 <img width="1223" height="282" alt="image" src="https://github.com/user-attachments/assets/1c400eb0-61e4-4f96-bf5b-399646f560f0" />
+## Grade
+<img width="1380" height="70" alt="image" src="https://github.com/user-attachments/assets/9adb0edd-b7af-432b-8bf2-384960412ca8" />
+
 
 
 ## RESULT
