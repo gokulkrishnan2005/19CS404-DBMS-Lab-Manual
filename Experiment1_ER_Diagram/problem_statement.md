@@ -132,18 +132,17 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+<img width="249" height="202" alt="image" src="https://github.com/user-attachments/assets/f4875db6-c27b-4573-bc0f-102974b15377" />
 
-### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+Entity          |  Attributes (PK, FK)                                                                      |  Notes                                                                     
+----------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------
+Book            |  ISBN (PK), title, author, edition, category, price, PublisherId (FK)                     |  Each book is uniquely identified by ISBN and linked to one publisher .    
+Publisher       |  PublisherId (PK), Year of publication, name                                              |  The Book entity uses this PK as an FK; one publisher can have many books .
+Reader          |  UserId (PK), Email, address, phone no, firstname, lastname, LoginID (FK)                 |  Name is split into firstname and lastname. Phone number is multi-valued . 
+Authentication  |  LoginID (PK), password                                                                   |  Used to link login details for both readers and staff .                   
+Staff           |  staff_id (PK), name                                                                      |  Identifies library staff members .                                        
+Reserve/Return  |  Reg_no (PK), UserId (FK), ISBN (FK), Reserve date, Due date, Return date, staff_id (FK)  |  Transaction table for borrowing/returning books .                         
 
 ### Relationships and Constraints
 
