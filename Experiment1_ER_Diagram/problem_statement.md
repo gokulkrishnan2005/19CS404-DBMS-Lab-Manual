@@ -8,7 +8,7 @@ Gain hands-on experience in designing ER diagrams that represent database struct
 
 ---
 
-# Scenario A: City Fitness Club Management
+# Scenario A: City Fitness Club Managements
 
 **Business Context:**  
 FlexiFit Gym wants a database to manage its members, trainers, and fitness programs.
