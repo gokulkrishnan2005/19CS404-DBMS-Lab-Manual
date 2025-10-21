@@ -67,31 +67,54 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+<img width="1043" height="822" alt="image" src="https://github.com/user-attachments/assets/e69726b7-3e19-4279-96c7-18e7a2b858be" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+Entity                         |  Attributes (PK, FK)                                                                      |  Notes                                                                                                                           
+-------------------------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------
+Book                           |  ISBN (PK), autho, title, edition, category, price, PublisherId (FK)                      |  A Book is linked to a Publisher. ISBN is the unique identifier.                                                                 
+Publisher                      |  PublisherId (PK), Year of publication, name                                              |  The Book entity uses this PK as an FK to show which publisher published it.                                                     
+Reader                         |  UserId (PK), Email, address, phone no, firstname, lastname, LoginID (FK)                 |  UserId is the unique identifier. Name is split into firstname and lastname (Composite). Phone no is Multi-valued (see note).    
+Authentication System          |  LoginID (PK), password                                                                   |  This PK is used as an FK in the Reader entity to link the login details.                                                        
+Staff                          |  staff_id (PK), name                                                                      |  This identifies library staff members.                                                                                          
+Reserve/Return (Relationship)  |  Reg_no (PK), UserId (FK), ISBN (FK), Reserve date, Due date, Return date, staff_id (FK)  |  This is a transaction table that replaces the Reports entity and links the Reader and Book. Reg_no is the unique transaction ID.
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
-
+Relationship                                   |  Cardinality  |  Participation   |  Notes                                                                                       
+-----------------------------------------------+---------------+------------------+----------------------------------------------------------------------------------------------
+Reader reserves Books                          |  1:N          |  Reader: Total   |  A reader can reserve many books; each book is reserved by only one reader.                  
+Publisher publishes Books                      |  1:N          |  Book: Total     |  A publisher can publish many books; each book is published by only one publisher.           
+Staff keeps track of Readers                   |  M:N          |  Staff: Partial  |  Multiple staff can track multiple readers; tracking is not mandatory for all.               
+Staff maintains Reports                        |  1:N          |  Staff: Total    |  Each staff maintains multiple reports; every report is maintained by one staff member.      
+Staff maintains Books                          |  1:N          |  Staff: Partial  |  Each staff maintains multiple books; not all staff may maintain books.                      
+Authentication System provides login to Staff  |  1:N          |  Staff: Total    |  Each authentication system provides login to multiple staff members; every staff must login.
 ### Assumptions
-- 
-- 
-- 
+-Each reader must have a valid login credential in the authentication system before borrowing or reserving books.
+
+-A book can be reserved by only one reader at a time, but may be borrowed multiple times by different readers over time.
+
+-Phone number is a multi-valued attribute for readers, allowing multiple contact numbers per user.
+
+-Overdue fines are calculated automatically based on the difference between the return date and due date.
+
+-Each reservation/return transaction (Reg_no) uniquely identifies one borrowing instance and links one reader to one book.
+
+-Every book must belong to a single publisher, but one publisher can publish many books.
+
+-Staff members are responsible for maintaining book records, managing reservations, and assisting readers, though not all staff handle all functions.
+
+-Each staff member also logs in using the authentication system, ensuring secure and authorized access.
+
+-All events are organized by the library and may have one or more speakers/authors, but each event must be assigned to a room.
+
+-Rooms can be booked either for study purposes or for cultural events, not simultaneously for both activities.
+
+-Deletion of a reader record is restricted until all borrowed books are returned and pending fines are cleared.
+
+-System ensures referential integrity, meaning no orphan books, readers, or transactions exist without proper linkages to their related entities.
 
 ---
 
