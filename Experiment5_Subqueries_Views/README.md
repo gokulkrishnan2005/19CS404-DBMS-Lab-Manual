@@ -154,21 +154,21 @@ WHERE age < (
 
 **Question 8**
 ---
-<img width="1268" height="386" alt="image" src="https://github.com/user-attachments/assets/2dd0cd5a-c257-4c5b-bf44-d3598e958b04" />
+<img width="1149" height="488" alt="image" src="https://github.com/user-attachments/assets/68d4befa-2ffb-4ca8-8143-1a2c96565210" />
 
 ```sql
-SELECT g.student_id, g.student_name, g.subject, g.grade
-FROM GRADES g
-WHERE g.grade = (
-    SELECT MIN(g2.grade)
-    FROM GRADES g2
-    WHERE g2.subject=g.subject
+SELECT name, city
+FROM customer
+WHERE city IN (
+    SELECT city
+    FROM customer
+    WHERE id IN (3,7)
 );
 ```
 
 **Output:**
 
-![Uploading image.png…]()
+<img width="540" height="435" alt="image" src="https://github.com/user-attachments/assets/40973405-ab12-4231-81e9-be4ffc8b7460" />
 
 **Question 9**
 ---
